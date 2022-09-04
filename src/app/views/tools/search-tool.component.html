@@ -1,0 +1,40 @@
+<div class="explorer fluid">
+
+  <div class="primary">
+
+    <div class="card card-border">
+
+      <div class="card-header card-header-flat">
+
+        <div class="card-title">
+          Buscador
+
+          <div class="card-hint">
+            demo
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="card-body">
+
+        <div fxLayout="column" fxFlexFill>
+
+          <div [style.padding.px]="8"> filtros... </div>
+
+          <emp-ng-data-table
+            [dataTable]="dataTable"
+            [style.height.%]="100">
+
+          </emp-ng-data-table>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

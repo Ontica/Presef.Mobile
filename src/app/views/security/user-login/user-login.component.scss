@@ -1,0 +1,151 @@
+@import "../../../../styles/variables";
+
+$medium-max-width: 1024px;
+
+.outer {
+  align-items: center;
+  display: flex;
+  height: 80vh;
+  justify-content: center;
+  width: 100%;
+  color: $primary-color;
+}
+
+.login-div {
+  display: flex;
+  height: 340px;
+  width: 600px;
+}
+
+.left-column {
+  height: 340px;
+  width: 220px;
+}
+
+.logo {
+  margin-top: 40px;
+  height: 200px;
+}
+
+.central-column {
+  height: 340px;
+  width: 16px;
+  background-color: $primary-color;
+}
+
+.right-column {
+  margin-left: 50px;
+  height: 340px;
+  width: 340px;
+}
+
+.authentication-section-welcome {
+  padding-top: 12px;
+  padding-left: 12px;
+  font-size: 15pt;
+  text-transform: uppercase;
+  color: $primary-color;
+  line-height: 16pt;
+}
+
+
+.authentication-section-form {
+  padding: 0 12px 0 20px;
+  height: 164px;
+
+  input {
+    margin-bottom: 20px;
+    padding-right: 30px;
+  }
+
+  .password-field-container {
+    position: relative;
+    height: 32px;
+    margin-bottom: 20px;
+  }
+
+  .footer-submit-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+label {
+  font-size: 10pt;
+  font-weight: 500;
+  padding-top: 12px;
+  color:  gray;//$white;
+}
+
+.hint {
+  font-size: 9.5pt;
+  white-space: nowrap;
+  color: gray;
+  margin-top: 4px;
+}
+
+.hint-bold {
+  font-size: 10pt;
+  white-space: nowrap;
+  color: gray;
+  margin-top: 4px;
+  font-weight: 800;
+}
+
+.inline-error {
+  color:  darkblue; //$border-color-title;
+  font-size: 10pt;
+  font-weight: 400;
+  margin: 0 10px 12px 0;
+  padding: 4px;
+  border: 1px solid darkblue;//$border-color-title;
+  border-radius: 1px;
+}
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 32px $control-background-color inset;
+  -webkit-box-shadow: 0 0 0 32px $control-background-color inset;
+}
+
+@media only screen and (max-width: $medium-max-width) {
+  .outer {
+    padding-right: 0;
+  }
+}
+
+
+@media (max-width:  959px) {
+
+  .outer {
+    align-items: center;
+    display: flex;
+    height: 80vh;
+    justify-content: center;
+    width: 100%;
+    color: $primary-color;
+  }
+
+  .login-div {
+    display: flex;
+    height: 80%;
+    width: 90%;
+  }
+
+  .left-column {
+    display: none;
+  }
+  
+  .central-column {
+    height: 90%;
+    width: 10px;
+    background-color: $primary-color;
+  }
+
+  .right-column {
+    margin-left: 10px;
+    height: 80%;
+    width: 80%;
+  }
+
+} 
