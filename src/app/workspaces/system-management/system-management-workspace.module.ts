@@ -17,7 +17,7 @@ import { SystemManagementWorkspaceRoutingModule } from './system-management-work
 
 import { ControlPanelMainPageComponent } from './control-panel-main-page.component';
 
-
+import { InsuranceContractModule } from '@app/views/insurance-contracts/insurance-contracts.module';
 
 @NgModule({
 
@@ -31,6 +31,8 @@ import { ControlPanelMainPageComponent } from './control-panel-main-page.compone
     SharedModule,
 
     SystemManagementWorkspaceRoutingModule,
+
+    InsuranceContractModule
   ],
 
   declarations: [

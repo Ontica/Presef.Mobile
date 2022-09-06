@@ -1,0 +1,213 @@
+<div class="card-body-padding" [empNgSpinnerHost]="spinner">
+
+  <emp-ng-spinner #spinner [visible]="submitted">
+  </emp-ng-spinner>   
+    
+  <div fxLayout="row" fxLayout.lt-md="column">
+  
+
+    <div fxFlex fxLayoutAlign="center center">
+      <button                     
+          (click)="onBack()">             
+          Anterior
+      </button>     
+      <div style="width:20px"></div>
+      <button                       
+              (click)="onNext()">
+              Siguiente
+      </button>
+    </div>
+
+    </div>
+
+    <mat-divider class="horizontal"></mat-divider>
+
+    <form [formGroup]="formHandler.form"  autocomplete="off"  class="form-section" style="width: 100%;">
+
+      <div fxLayout="column" fxLayout.lt-md="column" fxLayoutGap="0.75rem" fxLayoutGap.lt-md="0">
+
+        <div fxLayout="row" fxLayout.lt-md="column">
+                
+         <div fxFlex="80%">
+              <label for="full-name">Nombre del Contratante:</label>
+              <input type="text" id="full-name" class="text-box"
+               [formControlName]="controls.contractor"
+               [class.invalid-control]="formHandler.showInvalidControl(controls.contractor)">
+          </div>
+          
+        </div>
+
+      <div *ngIf="index == 0"> 
+
+        <div fxLayout="row" fxLayout.lt-md="column">
+
+          <div fxFlex="80%">
+            <label for="email">Correo electrónico:</label>
+            <input type="text" id="email" class="text-box"
+             [formControlName]="controls.email">
+        </div>
+
+        </div>
+
+        <div fxLayout="row" fxLayout.lt-md="column">
+
+          <div fxFlex="50%">
+            <label>Domicilio:</label>
+            <textarea class="text-area" empNgTextareaAutoresize rows="1"
+              [formControlName]="controls.address"
+              [class.invalid-control]="formHandler.showInvalidControl(controls.address)">
+          </textarea>
+          </div>
+
+          <div fxFlex="10%">
+            <label for="city">Ciudad:</label>
+            <input type="text" id="city" class="text-box"
+            [formControlName]="controls.city"
+            [class.invalid-control]="formHandler.showInvalidControl(controls.city)">            
+          </div>
+
+          <div fxFlex="20%">
+            <label for="state">Estado:</label>
+            <input type="text" id="state" class="text-box"
+            [formControlName]="controls.state"
+            [class.invalid-control]="formHandler.showInvalidControl(controls.state)">
+          </div>
+          
+        </div>
+
+        <div fxLayout="row" fxLayout.lt-md="column">
+
+          <div fxFlex="30%">
+            <label for="cp">Código postal:</label>
+            <input type="text" id="cp" class="text-box"
+            [formControlName]="controls.zip"
+            [class.invalid-control]="formHandler.showInvalidControl(controls.zip)">
+          </div>
+          
+          <div fxFlex="30%" fxFlex.lt-md="none">
+            <label>Fecha de nacimiento:</label>
+            <emp-ng-datepicker
+              [formControlName]="controls.dateOfBirth"
+              [showError]="formHandler.showInvalidControl(controls.dateOfBirth)">
+  
+            </emp-ng-datepicker>
+          </div>
+
+          <div fxFlex="30%">
+          <label>Sexo:</label>
+          <emp-ng-select  
+            [config]="{clearable: true}"      
+            [formControlName]="controls.gender"  
+            [items]="[{uid: '1', name: 'Masculino'}, {uid: '2',name: 'Femenino'} ]" 
+            [showError]="formHandler.showInvalidControl(controls.gender)">
+          </emp-ng-select>
+        </div>
+
+        </div>
+      
+      </div>  
+      <div *ngIf="index == 1"> 
+
+        <div fxLayout="row" fxLayout.lt-md="column">
+
+          <div fxFlex="45%">
+            <label>RFC:</label>
+            <input type="rfc" id="rfc" class="text-box"
+            [formControlName]="controls.RFC">
+          
+          </div>
+          <div fxFlex="45%">
+            <label for="curp">CURP:</label>
+            <input type="text" id="curp" class="text-box"
+            [formControlName]="controls.CURP">
+            
+          </div>          
+          
+        </div>
+
+        <div fxLayout="row" fxLayout.lt-md="column">
+
+          <div fxFlex="50%">
+            <label>INE:</label>
+            <input type="rfc" id="rfc" class="text-box"
+            [formControlName]="controls.INE">
+          </div>
+
+          <div fxFlex="90%">
+            <label>Tel particular:</label>
+            <input type="rfc" id="rfc" class="text-box"
+            [formControlName]="controls.phone">
+          </div>
+
+          <div fxFlex="100%">
+            <label>Celular:</label>
+            <input type="rfc" id="rfc" class="text-box"
+            [formControlName]="controls.cellPhone"
+            [class.invalid-control]="formHandler.showInvalidControl(controls.cellPhone)">
+          </div>
+
+        </div>
+        
+      </div>
+
+      <div *ngIf="index == 2">
+
+      <mat-divider class="horizontal"></mat-divider>
+
+      <div fxLayout="row" fxLayout.lt-md="column">
+
+        <div fxFlex="100%">
+            <label>Tipo de plan:</label>
+            <emp-ng-select  
+              [config]="{clearable: true}"        
+              [formControlName]="controls.contractType"                              
+              [items]="contractTypes"
+              [showError]="formHandler.showInvalidControl(controls.contractType)">
+            </emp-ng-select>
+        </div>
+
+        <div fxFlex="100%">
+            <label>Forma de pago:</label>
+            <emp-ng-select  
+              [config]="{clearable: true}"            
+              [formControlName]="controls.paymentType"
+              [items]="paymentTypes"
+              [showError]="formHandler.showInvalidControl(controls.paymentType)">
+            </emp-ng-select>
+        </div>         
+
+      </div>
+
+      <div fxLayout="row" fxLayout.lt-md="column">
+
+        <div fxFlex="100%">
+            <label>Persona designada (Beneficiaria):</label>
+            <input type="text" class="text-box"
+            [formControlName]="controls.beneficiary"
+            [class.invalid-control]="formHandler.showInvalidControl(controls.beneficiary)">
+        </div>              
+
+      </div>
+
+      <mat-divider class="horizontal"></mat-divider>
+
+      <div fxLayout="row" fxLayout.lt-md="column">
+
+        <div fxFlex fxLayoutAlign="end center">
+              <button type="submit"
+                [class.btn-action]="formHandler.form.valid"
+                [disabled]="formHandler.form.invalid"
+                (click)="onSave()">
+                Guardar
+              </button>
+        </div>    
+
+      </div>
+
+      </div>  
+
+    </div>
+
+    </form>
+
+</div>

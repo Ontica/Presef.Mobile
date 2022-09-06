@@ -9,8 +9,12 @@ import { Component } from '@angular/core';
 
 import { MessageBoxService } from '@app/shared/containers/message-box';
 
+import { Assertion, EventInfo } from '@app/core';
+
 import { ControlPanelOption, ControlPanelOptionList } from './control-panel-config';
 
+import { Contract, ContractFields } from '@app/models/contract';
+import { ContractDataService } from '@app/data-services/contract.data.service';
 
 @Component({
   selector: 'emp-ng-control-panel-main-page',
@@ -18,9 +22,13 @@ import { ControlPanelOption, ControlPanelOptionList } from './control-panel-conf
 })
 export class ControlPanelMainPageComponent {
 
+  contractsList: Contract[];
+  displayOptionModalSelected = null;
+
   controlPanelOptionList = ControlPanelOptionList;
 
-  constructor(private messageBox: MessageBoxService) {}
+  constructor(private messageBox: MessageBoxService,
+    private contractDataService: ContractDataService) {}
 
 
   onClickControlPanelOption(option: ControlPanelOption) {
@@ -33,5 +41,14 @@ export class ControlPanelMainPageComponent {
     }
 
   }
+
+  onSelectedContractEvent(event:  Contract) {
+    
+ }
+
+ onCreateContractEvent(envent: EventInfo) {    
+  this.displayOptionModalSelected = true;
+}
+
 
 }

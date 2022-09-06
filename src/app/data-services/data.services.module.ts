@@ -12,12 +12,15 @@ import { ProjectDataService } from './projects.data.service';
 import { FileDownloadService } from './file-services/file-download.service';
 import { getSaver, SAVER } from './file-services/saver.provider';
 
+import { ContractDataService } from './contract.data.service';
+
 
 @NgModule({
 
   providers: [
     FileDownloadService,
     ProjectDataService,
+    ContractDataService,
 
     { provide: SAVER, useFactory: getSaver }
   ]
