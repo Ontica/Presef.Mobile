@@ -5,7 +5,6 @@
     
   <div fxLayout="row" fxLayout.lt-md="column">
   
-
     <div fxFlex fxLayoutAlign="center center">
       <button                     
           (click)="onBack()">             
@@ -18,7 +17,7 @@
       </button>
     </div>
 
-    </div>
+  </div>
 
     <mat-divider class="horizontal"></mat-divider>
 
@@ -156,7 +155,7 @@
 
       <div fxLayout="row" fxLayout.lt-md="column">
 
-        <div fxFlex="100%">
+        <div fxFlex="50%">
             <label>Tipo de plan:</label>
             <emp-ng-select  
               [config]="{clearable: true}"        
@@ -166,7 +165,7 @@
             </emp-ng-select>
         </div>
 
-        <div fxFlex="100%">
+        <div fxFlex="50%">
             <label>Forma de pago:</label>
             <emp-ng-select  
               [config]="{clearable: true}"            
@@ -180,7 +179,7 @@
 
       <div fxLayout="row" fxLayout.lt-md="column">
 
-        <div fxFlex="100%">
+        <div fxFlex="60%">
             <label>Persona designada (Beneficiaria):</label>
             <input type="text" class="text-box"
             [formControlName]="controls.beneficiary"
@@ -203,11 +202,22 @@
         </div>    
 
       </div>
+    
 
       </div>  
 
     </div>
 
     </form>
+
+    <div fxLayout="row" fxLayout.lt-md="column" *ngIf="isSendContractShow">
+  
+      <div fxFlex fxLayoutAlign="center center">
+        <button mat-fab style="width: 40%; background-color:#0075AD; color:white;" 
+          (click)="onSendContract()">Enviar poliza</button>
+      </div>
+  
+    </div>
+      
 
 </div>

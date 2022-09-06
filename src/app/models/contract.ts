@@ -45,6 +45,7 @@ export const PaymentTypes: PaymentType[] = [ {uid: '1', name: 'Pago vía nómina
 
 export interface Contract { 
   contractTrackUID: string,
+  contractId: number,
   contractTypeInfo: ContractTypes,
   contractNo: string,
   contractStatus: string,
@@ -58,6 +59,7 @@ export interface Contract {
 
 export const EmptyContract: Contract = {
   contractTrackUID: '',
+  contractId: 0,
   contractTypeInfo:  {uid: '', name: ''},
   contractNo: '',
   contractStatus: '',

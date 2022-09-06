@@ -57,6 +57,10 @@ enum InsuranceContractSetCreatorFormControls {
 
   contract: ContractFields;
 
+  isSendContractShow = false;
+
+  private contractId = -1;
+
   constructor(private contractDataService: ContractDataService) {
     this.initForm();
   }
@@ -76,7 +80,8 @@ enum InsuranceContractSetCreatorFormControls {
     this.contract = this.getFormData(); 
        
     this.contractDataService.createContract(this.contract).
-    subscribe(x => { alert("contrato agregado!!!"); this.formHandler.resetForm(); });
+    subscribe(x => { this.contractId = x.contractId;
+      ; this.isSendContractShow = true; this.formHandler.resetForm(); });
   }
 
   onNext() {
@@ -84,6 +89,13 @@ enum InsuranceContractSetCreatorFormControls {
       return;
     }
     this.index++;
+  }
+
+  onSendContract() {
+
+    this.contractDataService.sendContract(this.contractId)
+    .subscribe(x => { this.index = 0; this.isSendContractShow = false;
+      alert("La poliza ha sido enviada al correo proporcionado!!!")});    
   }
    
    
