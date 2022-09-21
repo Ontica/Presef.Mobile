@@ -94,12 +94,12 @@
 
           <div fxFlex="30%">
           <label>Sexo:</label>
-          <emp-ng-select  
-            [config]="{clearable: true}"      
-            [formControlName]="controls.gender"  
-            [items]="[{uid: '1', name: 'Masculino'}, {uid: '2',name: 'Femenino'} ]" 
-            [showError]="formHandler.showInvalidControl(controls.gender)">
-          </emp-ng-select>
+          <select [formControlName]="controls.gender"
+                  [class.invalid-control]="formHandler.showInvalidControl(controls.gender)">
+            <option value="">Seleccionar</option>
+            <option value="1">Masculino</option>
+            <option value="2">Femenino</option>
+          </select>
         </div>
 
         </div>
@@ -157,22 +157,24 @@
 
         <div fxFlex="50%">
             <label>Tipo de plan:</label>
-            <emp-ng-select  
-              [config]="{clearable: true}"        
-              [formControlName]="controls.contractType"                              
-              [items]="contractTypes"
-              [showError]="formHandler.showInvalidControl(controls.contractType)">
-            </emp-ng-select>
+          <select [formControlName]="controls.contractType"
+                  [class.invalid-control]="formHandler.showInvalidControl(controls.gender)">
+            <option value="">Seleccionar</option>
+            <option *ngFor="let contractType of contractTypes" [ngValue]="contractType.uid">
+              {{contractType.name}}</option>
+            
+          </select>           
         </div>
 
         <div fxFlex="50%">
             <label>Forma de pago:</label>
-            <emp-ng-select  
-              [config]="{clearable: true}"            
-              [formControlName]="controls.paymentType"
-              [items]="paymentTypes"
-              [showError]="formHandler.showInvalidControl(controls.paymentType)">
-            </emp-ng-select>
+            <select [formControlName]="controls.paymentType"
+              [class.invalid-control]="formHandler.showInvalidControl(controls.gender)">
+              <option value="">Seleccionar</option>
+              <option *ngFor="let paymentType of paymentTypes" [ngValue]="paymentType.uid">
+                {{paymentType.name}}
+              </option>
+            </select>            
         </div>         
 
       </div>

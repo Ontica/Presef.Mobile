@@ -81,7 +81,7 @@ enum InsuranceContractSetCreatorFormControls {
        
     this.contractDataService.createContract(this.contract).
     subscribe(x => { this.contractId = x.contractId;
-      ; this.isSendContractShow = true; this.formHandler.resetForm(); });
+       this.isSendContractShow = true; this.formHandler.resetForm(); });
   }
 
   onNext() {
